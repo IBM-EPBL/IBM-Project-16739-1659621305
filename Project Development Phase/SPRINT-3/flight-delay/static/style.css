@@ -1,0 +1,55 @@
+select {
+  width: 20%;
+  padding: 8px 8px;
+  border: none;
+  border-radius: 3px;
+  background-color: #f1f1f1;
+}
+input {
+  width: 20%;
+  padding: 8px 8px;
+  border: none;
+  border-radius: 3px;
+  background-color: #f1f1f1;
+}
+form{
+  font-family: Helvetica;
+  padding: 80px;
+  background-color: #5295a8;
+  width: 350px;
+  height:660px;
+  padding: 30px;
+  margin: 90px;
+  margin-top: 50px;
+  margin-right: 20px;
+  padding-left: 80px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+.btn{
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #E11584;
+  color: white;
+}
+label
+{
+  display: inline-block;
+  width: 50%;
+}
+.bb-img{
+  background-image: url('images/img.jpg');
+  max-width: 100%;
+  max-height: 40%;
+}
