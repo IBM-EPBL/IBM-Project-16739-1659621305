@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<title>Flight Delay Predictor</title>
+<link rel="stylesheet" href="static/style.css">
+<head>
+
+</head>
+<body class="bb-img">
+    <div class="form">
+   <form action="{{ url_for('predict')}}" method="post">
+    <center><h2>Flight Delay Predictor</h2></center>
+   <label>Quarter of the year</label>
+       <input type="number" name="quarter" placeholder="4" required="required" min='1' max='9999' />
+    <br><br>
+   <label>Month in number</label>
+     <input type="number" name="month" placeholder="12" required="required" min='1' max='9999'/>
+    <br><br>
+    <label>Day of the Month</label>
+       <input type="number" name="daym" placeholder="30" required="required" min='1' max="9999"/>
+    <br><br>
+   <label> Day of the week</label>
+       <input type="number" name="dayw"  placeholder="7" required="required" min='1' max="9999"/>
+    <br><br>
+    <label>Flight Number</label>
+       <input type="number" name="fnum" placeholder="1010" required="required" min='1' max="9999"/>
+      <br><br>
+      <label> Origin </label>
+       <select name="airporto" class="origin">
+        <option value='1'>ATL</option>
+        <option value='2'>DWT</option>
+        <option value='3'>JFK</option>
+        <option value='4'>MSP</option>
+        <option value='5'>SEA</option>
+      </select><br><br>
+      <label>Destination </label> <select name="airportd" class="dest">
+        <option value='1'>ATL</option>
+        <option value='2'>DWT</option>
+        <option value='3'>JFK</option>
+        <option value='4'>MSP</option>
+        <option value='5'>SEA</option>
+      </select><br><br>
+
+     <label>Departure Time</label>
+       <input type="number" name="dtime" width="50%" placeholder="HHMM" required="required" min='1' max="999999"/>
+      <br><br>
+      <label>Arrival Time</label>
+       <input type="number" name="atime" placeholder="HHMM" required="required"  min='1' max="999999"/>
+     <br><br>
+     <label>Travelling Time</label>
+       <input type="number" name="ttime" placeholder="mins" required="required" min='1' max="999999"/>
+     <br><br>
+     <label>Distance</label>
+       <input type="number" name="distance" placeholder="km" required="required"min='140' min='1' max="999999"/>
+     <br><br><centre> <button type="submit" class="btn btn-primary btn-block">Predict</button></centre>
+       <div>
+            {{ prediction_text }}
+            <br>
+      </div>
+    </form>
+    </div>
+</body>
+</html>
