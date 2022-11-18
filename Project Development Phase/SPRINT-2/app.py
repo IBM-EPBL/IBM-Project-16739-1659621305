@@ -1,6 +1,6 @@
 import numpy as np
 import os
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 import pickle
 
 app = Flask(__name__)
@@ -8,20 +8,20 @@ model = pickle.load(open('flight.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('main.html')
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    sm = [6, 7, 8]
-    wt = [9, 10, 11]
-    sp = [12, 1, 2, 3]
-    fl = [4, 5]
+    a = [6, 7, 8]
+    b = [9, 10, 11]
+    c = [12, 1, 2, 3]
+    d = [4, 5]
     farr = [int(x) for x in request.form.values()]
-    if farr[1] in sm:
+    if farr[1] in a:
         farr.append(0)
-    elif farr[1] in wt:
+    elif farr[1] in b:
         farr.append(1)
-    elif farr[1] in sp:
+    elif farr[1] in c:
         farr.append(2)
     else:
         farr.append(3)
@@ -31,22 +31,22 @@ def predict():
     output = round(prediction[0])
 
     if output == 0:
-        return render_template('main.html', prediction_text='No delay will happen'.format(output))
+        return render_template('index.html', prediction_text='No delay'.format(output))
     elif output == 1:
-        return render_template('main.html',
-                               prediction_text='There is a chance to departure delay will happen'.format(output))
+        return render_template('index.html',
+                               prediction_text='Chance of departure delay'.format(output))
     elif output == 2:
-        return render_template('main.html',
-                               prediction_text='here is a chance to both departure and arrival delay will happen'.format(
+        return render_template('index.html',
+                               prediction_text='Chance of both departure and arrival delay'.format(
                                    output))
     elif output == 3:
-        return render_template('main.html',
-                               prediction_text='here is a chance to flight  will diverted'.format(output))
+        return render_template('index.html',
+                               prediction_text='Chance of flight being diverted'.format(output))
     elif output == 4:
-        return render_template('main.html',
-                               prediction_text='here is a chance to cancel the flights'.format(output))
+        return render_template('index.html',
+                               prediction_text='Chance of cancelling the flight'.format(output))
     else:
-        return render_template('main.html', prediction_text='output {}'.format(output))
+        return render_template('index.html', prediction_text='output {}'.format(output))
 
 if __name__ == "__main__":
     os.environ.setdefault('FLASK_DEBUG', 'development')
