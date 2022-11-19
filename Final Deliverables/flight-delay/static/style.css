@@ -14,9 +14,9 @@ input {
 }
 form{
   font-family: Helvetica;
-  color: white;
+  color: black;
   padding: 80px;
-  background-color: #373737;
+  background-color: #5295a8;
   width: 350px;
   height:660px;
   padding: 30px;
@@ -43,7 +43,7 @@ form{
 
 }
 .btn:hover {
-  background-color: #3E3D53;
+  background-color: #E11584;
   color: white;
 }
 label
@@ -55,4 +55,7 @@ label
   background-image: url('images/img.jpg');
   max-width: 100%;
   max-height: 40%;
+}
+.output{
+font-size:20px;
 }
